@@ -22,9 +22,29 @@
 							<a th:href="@{/blogposts/{id} (id=${blog.id})}">
 								<button class="btn btn-primary">Edit Post</button>
 							</a>
-							<a th:href="@{/blogposts/delete/{id} (id=${blog.id})}">
-								<button class="btn btn-danger" onclick="confirm('Are you want to permenantly delete this post?')">Delete Post</button>
-							</a>
+							<!-- Button trigger modal -->
+							<button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">Delete Post</button>
+							
+							<!-- Modal -->
+							<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+								<div class="modal-dialog">
+									<div class="modal-content">
+										<div class="modal-header">
+											<h1 class="modal-title fs-5" id="exampleModalLabel">Confirm Post Deletion</h1>
+											<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+										</div>
+										<div class="modal-body">
+											<p>This will permanently delete this blog post! Are you sure?</p>
+										</div>
+										<div class="modal-footer">
+											<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close without deletion</button>
+											<a th:href="@{/blogposts/delete/{id} (id=${blog.id})}">
+												<button class="btn btn-danger">Delete Post</button>
+											</a>
+										</div>
+									</div>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
